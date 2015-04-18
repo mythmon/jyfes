@@ -19,8 +19,7 @@
         "description": "The Apache index page to pull from"
     },
     "DJANGO_SOURCE_CACHE_TIMEOUT": {
-        "default": 300,
-        "description": "The number of seconds to wait between polling the gif source."
+        "description": "The number of seconds to wait between polling the gif source. (300 is a good value)"
     },
     "DJANGO_CONFIGURATION": "Base",
     "DJANGO_SETTINGS_MODULES": "jyfes.settings"
