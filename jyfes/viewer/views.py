@@ -2,6 +2,8 @@ import html5lib
 import requests
 from django.shortcuts import render
 
+from jyfes.lib.memoize import memoize
+
 
 GIF_SOURCE = 'http://gifs.elijahcaine.me/'
 
@@ -12,6 +14,7 @@ def list_view(request):
     })
 
 
+@memoize(60 * 5)  # 5 minute cache
 def get_gifs():
     req = requests.get(GIF_SOURCE)
     doc = html5lib.parse(req.text, namespaceHTMLElements=False)
