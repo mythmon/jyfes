@@ -1,0 +1,27 @@
+{
+  "name": "Jyfes",
+  "description": "This shows all .gifs from an Apache index.",
+  "keywords": [
+    "gifs"
+  ],
+  "website": "https://github.com/mythmon/jyfes",
+  "repository": "https://github.com/mythmon/jyfes.git",
+  "success_url": "/",
+  "env": {
+    "DJANGO_ALLOWED_HOSTS": {
+        "description": "A comma seperated list of hostnames this site can be accessed.",
+    "DJANGO_SECRET_KEY": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "DJANGO_GIF_SOURCE": {
+        "description": "The Apache index page to pull from"
+    },
+    "DJANGO_SOURCE_CACHE_TIMEOUT": {
+        "default": 300,
+        "description": "The number of seconds to wait between polling the gif source."
+    },
+    "DJANGO_CONFIGURATION": "Base",
+    "DJANGO_SETTINGS_MODULES": "jyfes.settings"
+  }
+}
