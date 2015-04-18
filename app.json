@@ -9,7 +9,7 @@
   "success_url": "/",
   "env": {
     "DJANGO_ALLOWED_HOSTS": {
-        "description": "A comma seperated list of hostnames this site can be accessed."
+        "description": "A comma seperated list of hostnames this site can be accessed. This is probably {appname}.herokuapp.com"
     },
     "DJANGO_SECRET_KEY": {
       "description": "A secret key for verifying the integrity of signed cookies.",
