@@ -1,11 +1,9 @@
 import html5lib
 import requests
+from django.conf import settings
 from django.shortcuts import render
 
 from jyfes.lib.memoize import memoize
-
-
-GIF_SOURCE = 'http://gifs.elijahcaine.me/'
 
 
 def list_view(request):
@@ -14,14 +12,14 @@ def list_view(request):
     })
 
 
-@memoize(60 * 5)  # 5 minute cache
+@memoize(settings.SOURCE_CACHE_TIMEOUT)
 def get_gifs():
-    req = requests.get(GIF_SOURCE)
+    req = requests.get(settings.GIF_SOURCE)
     doc = html5lib.parse(req.text, namespaceHTMLElements=False)
 
     # Hackey, fragile way to pull all the links off a Apache index page.
     urls = [
-        GIF_SOURCE + '/' + tr[1][0].get('href')
+        settings.GIF_SOURCE + '/' + tr[1][0].get('href')
         for tr in doc.find('body').find('table').find('tbody')[2:]
         if len(tr) > 1
     ]

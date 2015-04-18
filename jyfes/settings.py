@@ -99,11 +99,12 @@ class Base(ConstantSettings):
     STATIC_URL = values.Value('/static/')
     STATIC_ROOT = values.Value(path('static'))
 
+    # This isn't a secret, there just isn't a good default.
+    GIF_SOURCE = values.SecretValue()
+    # Seconds to cache things.
+    SOURCE_CACHE_TIMEOUT = values.IntegerValue(300)
+
 
 class Dev(Base):
     DEBUG = True
-    SECRET_KEY = 'not a secret'
-
-
-class Test(Base):
     SECRET_KEY = 'not a secret'
