@@ -1,0 +1,9 @@
+.Gifs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Gifs__image {
+  height: 100px;
+  margin: 5px;
+}
