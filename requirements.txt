@@ -3,6 +3,8 @@ dj-database-url==0.3.0
 whitenoise==1.0.6
 gunicorn==19.3.0
 Jinja2==2.7.3
+requests==2.6.0
+html5lib==0.999
 
 # This version has Django 1.8 support which hasn't been
 # released, yet.

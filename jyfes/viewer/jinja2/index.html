@@ -9,7 +9,7 @@
     <body>
         <div class="Gifs">
             {% for gif in gifs %}
-                <img class="Gifs__image" src="{{ gif }}">
+                <a href="{{ gif }}"><img class="Gifs__image" src="{{ gif }}"></a>
             {% endfor %}
         </div>
     </body>
