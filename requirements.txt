@@ -1,0 +1,9 @@
+Django==1.8
+dj-database-url==0.3.0
+whitenoise==1.0.6
+gunicorn==19.3.0
+Jinja2==2.7.3
+
+# This version has Django 1.8 support which hasn't been
+# released, yet.
+https://github.com/jezdez/django-configurations/archive/5ece1070448d3e026b81422691c60207f5699c0c.zip#egg=django-configurations==0.8

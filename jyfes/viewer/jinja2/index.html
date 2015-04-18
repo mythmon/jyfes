@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charSet="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jyfes</title>
+        <link ref="stylesheet" href="{{ static('my_app/myexample.jpg') }}">
+    </head>
+    <body>
+        <div class="Gifs">
+            {% for gif in gifs %}
+                <img class="Gifs__image" src="{{ gif }}">
+            {% endfor %}
+        </div>
+    </body>
+</html>
