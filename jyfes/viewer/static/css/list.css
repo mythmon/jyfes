@@ -3,7 +3,16 @@
   flex-wrap: wrap;
 }
 
-.Gifs__image {
-  height: 100px;
+.Gifs__gif {
+  display: flex;
+  flex-direction: column;
   margin: 5px;
+}
+
+.Gifs__gif__title {
+  text-align: center;
+}
+
+.Gifs__gif__image {
+  max-height: 100px;
 }

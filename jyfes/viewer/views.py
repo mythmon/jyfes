@@ -1,5 +1,6 @@
 import html5lib
 import requests
+import urllib.parse
 from django.conf import settings
 from django.shortcuts import render
 
@@ -10,6 +11,19 @@ def list_view(request):
     return render(request, 'index.html', {
         'gifs': get_gifs(),
     })
+
+
+class Gif(object):
+
+    def __init__(self, url, title):
+        self.url = url
+        self.title = title
+
+    @classmethod
+    def from_url(cls, url):
+        _, title = url.rsplit('/', 1)
+        title = urllib.parse.unquote(title).rstrip('.gif')
+        return cls(url, title)
 
 
 @memoize(settings.SOURCE_CACHE_TIMEOUT)
@@ -24,4 +38,6 @@ def get_gifs():
         if len(tr) > 1
     ]
 
-    return urls
+    gifs = [Gif.from_url(url) for url in urls]
+
+    return gifs
