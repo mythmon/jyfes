@@ -4,15 +4,17 @@
 }
 
 .Gifs__gif {
-  display: flex;
-  flex-direction: column;
   margin: 5px;
 }
 
 .Gifs__gif__title {
   text-align: center;
+  display: block;
+  max-width: 180px;
 }
 
 .Gifs__gif__image {
-  max-height: 100px;
+  height: 100px;
+  display: block;
+  margin: auto;
 }
