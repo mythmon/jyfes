@@ -18,3 +18,8 @@
   display: block;
   margin: auto;
 }
+
+.paginator{
+  width: 100%;
+  text-align: center;
+  }

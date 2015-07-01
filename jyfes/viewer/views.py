@@ -3,13 +3,25 @@ import requests
 import urllib.parse
 from django.conf import settings
 from django.shortcuts import render
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from jyfes.lib.memoize import memoize
 
 
 def list_view(request):
+    all_gifs = get_gifs()
+    paginator = Paginator(all_gifs, 20) 
+    page = request.GET.get('page')
+
+    try:
+        gifs = paginator.page(page)
+    except PageNotAnInteger:
+        gifs = paginator.page(1)
+    except EmptyPage:
+        gifs = paginator.page(paginator.num_pages)
+    
     return render(request, 'index.html', {
-        'gifs': get_gifs(),
+        'gifs': gifs
     })
 
 
