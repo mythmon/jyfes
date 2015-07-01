@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charSet="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Jyfes</title>
-        <link rel="stylesheet" href="{{ static('css/list.css') }}" type="text/css">
-    </head>
-    <body>
-        <div class="Gifs">
-            {% for gif in gifs %}
-                <a class="Gifs__gif" href="{{ gif.url }}">
-                    <img class="Gifs__gif__image" src="{{ gif.url }}">
-                    <span class="Gifs__gif__title">{{ gif.title }}</span>
-                </a>
-            {% endfor %}
-        </div>
-    </body>
+<head>
+<meta charSet="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jyfes</title>
+<link rel="stylesheet" href="{{ static('css/list.css') }}" type="text/css">
+</head>
+<body>
+<div class="Gifs">
+    {% for gif in gifs %}
+    <a class="Gifs__gif" href="{{ gif.url }}">
+        <img class="Gifs__gif__image" src="{{ gif.url }}">
+        <span class="Gifs__gif__title">{{ gif.title }}</span>
+    </a>
+    {% endfor %}
+    <div class="paginator">
+        <span class="step-links">
+            {% if gifs.has_previous() %}
+            <a href="/?page={{ gifs.previous_page_number() }}">&lt;</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ gifs.number }} of {{ gifs.paginator.num_pages }}.
+            </span>
+
+            {% if gifs.has_next() %}
+            <a href="/?page={{ gifs.next_page_number() }}">&gt;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+</body>
 </html>
